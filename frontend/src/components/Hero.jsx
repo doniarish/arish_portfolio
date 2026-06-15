@@ -1,4 +1,4 @@
-import profileImg from '/ariis.jpg';
+import profileImg from '/ariis (2).jpg';
 
 const Hero = () => {
   const smoothScroll = (e, targetId) => {
@@ -14,7 +14,7 @@ const Hero = () => {
       <div className="hero-container">
         <div className="hero-content">
           <h1>Arish Doni S</h1>
-          <h2>AI &amp; Data Science Enthusiast | Full Stack Developer Intern</h2>
+          <h2>AI &amp; Data Science Enthusiast | AI Developer Intern</h2>
           <p>Curious mind. Creative solutions. Driven by knowledge.</p>
           <div className="hero-buttons">
             <a href="#projects" className="btn btn-primary" onClick={(e) => smoothScroll(e, '#projects')}>

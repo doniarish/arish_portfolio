@@ -208,6 +208,7 @@ nav.scrolled {
   height: 350px;
   border-radius: 50%;
   object-fit: cover;
+  object-position: top;
   border: 5px solid var(--accent);
   box-shadow: 0 0 30px rgba(34, 211, 238, 0.3);
   animation: float 3s ease-in-out infinite;

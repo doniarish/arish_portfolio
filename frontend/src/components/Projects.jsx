@@ -1,5 +1,6 @@
 import aboutImg  from '/about.avif';
 import neuralImg from '/neural.jpeg';
+import companyAutomationImg from '/company_automation.png';
 
 const projects = [
   {
@@ -19,6 +20,15 @@ const projects = [
     tools: ['TensorFlow', 'scikit-learn', 'Optimization'],
     github: 'https://github.com/doniarish/NEURAL-NETWORK-CLASSIFIER-',
     demo:   'https://github.com/doniarish/NEURAL-NETWORK-CLASSIFIER-/blob/main/README.md',
+  },
+  {
+    img: companyAutomationImg,
+    alt: 'Company Automation',
+    title: 'Company Automation',
+    desc: 'An automated system leveraging LLMs to streamline company operations and workflows.',
+    tools: ['LangChain', 'LangGraph'],
+    github: 'https://github.com/doniarish/Comany-automation',
+    demo:   'https://github.com/doniarish/Comany-automation',
   },
 ];
 

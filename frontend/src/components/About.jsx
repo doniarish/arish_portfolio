@@ -1,5 +1,5 @@
 import aboutImg from '/about.avif';
-import resumePdf from '/ari_sh (2).pdf';
+import resumePdf from '/ari_sh.pdf';
 
 const About = () => {
   return (
@@ -8,10 +8,10 @@ const About = () => {
         <h2 className="section-title">About Me</h2>
         <div className="about-content">
           <div className="about-text">
-            <h3>Passionate AI &amp; Data Science Student</h3>
+            <h3>Passionate AI &amp; Data Science Graduate</h3>
             <p>
               I'm a passionate and analytical thinker specializing in Artificial Intelligence
-              and Data Science. As a B.Tech student expected to graduate in May 2026, I have
+              and Data Science. As a recent B.Tech graduate (May 2026), I have
               hands-on experience in machine learning, full stack development, and a strong
               research interest.
             </p>
@@ -26,7 +26,7 @@ const About = () => {
               <div className="education-item">
                 <h5>B.Tech in Artificial Intelligence &amp; Data Science</h5>
                 <p>St. Xavier's Catholic College of Engineering</p>
-                <p>Expected May 2026</p>
+                <p>May 2026</p>
               </div>
             </div>
 

@@ -595,15 +595,20 @@ export function playSwarm() {
 
 export function initSwarm() {
   const swarm = getSwarm();
-  const SW_SESSION_KEY = 'arish-portfolio-sw';
+  const SW_SESSION_KEY = 'arish-portfolio-sw-v2';
   if (typeof window !== 'undefined') {
-    const isMobile = window.innerWidth < 900;
+    // Respect prefers-reduced-motion or explicit motion off toggle
+    const prefersReducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    let motionPref = null;
+    try { motionPref = localStorage.getItem('arish-motion'); } catch { /* ignore */ }
+    if (prefersReducedMotion || motionPref === '0') return;
+
     const played = sessionStorage.getItem(SW_SESSION_KEY);
-    if (!isMobile && !played) {
+    if (!played) {
       sessionStorage.setItem(SW_SESSION_KEY, '1');
       setTimeout(() => {
         if (swarm && !swarm.active) swarm.start();
-      }, 700);
+      }, 800);
     }
   }
 }

@@ -22,3 +22,8 @@ Thumbs.db
 # Logs
 *.log
 npm-debug.log*
+
+# Vault / Private files
+arish/
+.vite/
+

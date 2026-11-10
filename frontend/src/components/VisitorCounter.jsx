@@ -47,11 +47,9 @@ export default function VisitorCounter() {
     const refresh = () => {
       if (document.visibilityState === 'visible') call('get');
     };
-    const t = setInterval(refresh, 15000);
     document.addEventListener('visibilitychange', refresh);
     return () => {
       stop = true;
-      clearInterval(t);
       document.removeEventListener('visibilitychange', refresh);
     };
   }, [cfg, cacheKey]);

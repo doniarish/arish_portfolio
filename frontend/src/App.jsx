@@ -1,66 +1,77 @@
-import { useState, useEffect, useCallback } from 'react';
-import BgAnimation   from './components/BgAnimation';
-import Navbar        from './components/Navbar';
-import Hero          from './components/Hero';
-import About         from './components/About';
-import Skills        from './components/Skills';
-import Services      from './components/Services';
-import Projects      from './components/Projects';
-import Contact       from './components/Contact';
-import Footer        from './components/Footer';
-import Notification  from './components/Notification';
+// App.jsx — root component
+import { useEffect } from 'react';
+import { AppProvider } from './context.jsx';
+import { initSwarm } from './motion/swarm.js';
+import Header from './components/Header.jsx';
+import Hero from './components/Hero.jsx';
+import Ways from './components/Ways.jsx';
+import Work from './components/Work.jsx';
+import ToolsMarquee from './components/ToolsMarquee.jsx';
+import Lab from './components/Lab.jsx';
+import About from './components/About.jsx';
+import Journey from './components/Journey.jsx';
+import Creator from './components/Creator.jsx';
+import Contact from './components/Contact.jsx';
+import Footer from './components/Footer.jsx';
 
-function App() {
-  const [notification, setNotification] = useState({ message: '', type: '', visible: false });
-
-  // Scroll-reveal via IntersectionObserver
+function Portfolio() {
   useEffect(() => {
-    const sections = document.querySelectorAll('section');
-    sections.forEach((s) => {
-      s.style.opacity = '0';
-      s.style.transform = 'translateY(20px)';
-      s.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-    });
+    // Initialize swarm
+    initSwarm();
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.style.opacity = '1';
-            entry.target.style.transform = 'translateY(0)';
-          }
-        });
-      },
-      { threshold: 0.1 }
-    );
+    // Scroll reveal setup
+    function revealAll() {
+      const els = document.querySelectorAll('.rv:not(.vis)');
+      const obs = new IntersectionObserver(
+        (entries) => {
+          entries.forEach(e => {
+            if (e.isIntersecting) {
+              e.target.classList.add('vis');
+              obs.unobserve(e.target);
+            }
+          });
+        },
+        { threshold: 0.12 }
+      );
+      els.forEach(el => obs.observe(el));
+    }
 
-    sections.forEach((s) => observer.observe(s));
-    return () => observer.disconnect();
-  }, []);
+    // Small delay so DOM is painted
+    const timer = setTimeout(revealAll, 100);
 
-  const showNotification = useCallback((message, type) => {
-    setNotification({ message, type, visible: true });
-    setTimeout(() => setNotification((n) => ({ ...n, visible: false })), 5000);
+    // MutationObserver so cards rendered later or updated state also reveal
+    const mutObs = new MutationObserver(() => revealAll());
+    mutObs.observe(document.body, { childList: true, subtree: true });
+
+    return () => {
+      clearTimeout(timer);
+      mutObs.disconnect();
+    };
   }, []);
 
   return (
     <>
-      <BgAnimation />
-      <Navbar />
-      <Hero />
-      <About />
-      <Skills />
-      <Services />
-      <Projects />
-      <Contact showNotification={showNotification} />
+      <Header />
+      <main>
+        <Hero />
+        <Ways />
+        <Work />
+        <ToolsMarquee />
+        <Lab />
+        <About />
+        <Journey />
+        <Creator />
+        <Contact />
+      </main>
       <Footer />
-      <Notification
-        message={notification.message}
-        type={notification.type}
-        visible={notification.visible}
-      />
     </>
   );
 }
 
-export default App;
+export default function App() {
+  return (
+    <AppProvider>
+      <Portfolio />
+    </AppProvider>
+  );
+}

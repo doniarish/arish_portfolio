@@ -1,46 +1,81 @@
-import aboutImg from '/about.avif';
-import resumePdf from '/ari_sh.pdf';
+// About.jsx — Experience & Craft
+import { useRef, useEffect } from 'react';
+import { skillBars, processSteps } from '../data/profile.js';
 
-const About = () => {
+export default function About() {
+  const barsRef = useRef(null);
+
+  useEffect(() => {
+    const el = barsRef.current;
+    if (!el) return;
+    const obs = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) {
+        el.classList.add('vis');
+        obs.disconnect();
+      }
+    }, { threshold: 0.2 });
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, []);
+
   return (
-    <section className="about" id="about">
-      <div className="section-container">
-        <h2 className="section-title">About Me</h2>
-        <div className="about-content">
-          <div className="about-text">
-            <h3>Passionate AI &amp; Data Science Graduate</h3>
-            <p>
-              I'm a passionate and analytical thinker specializing in Artificial Intelligence
-              and Data Science. As a recent B.Tech graduate (May 2026), I have
-              hands-on experience in machine learning, full stack development, and a strong
-              research interest.
-            </p>
-            <p>
-              I use research, data, and thoughtful design to create delightful products that
-              scale. My approach combines technical expertise with creative problem-solving to
-              deliver innovative solutions.
+    <section id="about">
+      <div className="wrap">
+        <div className="section-label rv">
+          <span className="kicker">04 / ABOUT</span>
+        </div>
+        <h2 className="sec-head rv" data-sw="text">
+          Experience<br />&amp; Craft<span className="red-dot">.</span>
+        </h2>
+
+        <div className="about-grid">
+          {/* Left: bio + process */}
+          <div>
+            <p className="about-bio rv d1" data-sw="text">
+              I'm an AI & Data Science engineer passionate about building systems that solve real problems.
+              From RAG-based knowledge retrieval to production chatbots handling multilingual queries,
+              I bring together ML fundamentals and modern LLM tooling to ship results-driven applications.
             </p>
 
-            <div className="education">
-              <h4>Education</h4>
-              <div className="education-item">
-                <h5>B.Tech in Artificial Intelligence &amp; Data Science</h5>
-                <p>St. Xavier's Catholic College of Engineering</p>
-                <p>May 2026</p>
-              </div>
+            <div className="process-steps rv d2">
+              {processSteps.map((step, i) => (
+                <div className="process-step" key={step.n} data-sw="box" data-sw-dup="process-steps">
+                  <div className="step-num">{step.n}</div>
+                  <div className="step-content">
+                    <h4 data-sw="text">{step.title}</h4>
+                    <p>{step.desc}</p>
+                  </div>
+                </div>
+              ))}
             </div>
 
-            <a href={resumePdf} className="btn btn-primary" download>
-              Download Resume
-            </a>
+            <div className="quote-card rv d3" data-sw="box">
+              "Research, build, evaluate, ship. Repeat."
+            </div>
           </div>
-          <div className="about-image">
-            <img src={aboutImg} alt="About Arish" className="about-img" />
+
+          {/* Right: skill bars */}
+          <div className="about-right rv d2" ref={barsRef}>
+            <h3 style={{ fontFamily: 'var(--disp)', fontSize: 'clamp(20px,2.5vw,28px)', textTransform: 'uppercase', marginBottom: 32 }} data-sw="text">
+              Skill Stack<span className="red-dot">.</span>
+            </h3>
+            {skillBars.map(sb => (
+              <div className="skill-bar-wrap" key={sb.label} data-sw="box" data-sw-dup="skill-bars">
+                <div className="skill-bar-top">
+                  <span className="skill-bar-name">{sb.label}</span>
+                  <span className="skill-bar-val">{sb.level}%</span>
+                </div>
+                <div className="skill-bar-track">
+                  <div
+                    className="skill-bar-fill"
+                    style={{ '--lv': sb.level }}
+                  />
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </div>
     </section>
   );
-};
-
-export default About;
+}

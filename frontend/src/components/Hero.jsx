@@ -184,11 +184,11 @@ export default function Hero() {
 
             {/* Right Column: Motto & Vertical Stat Numbers */}
             <div className="hero-col-right rv d2">
-              <div className="hero-motto" data-sw="text">
+              <div className="hero-motto">
                 <span className="motto-spark">✳</span>
                 <div className="motto-lines">
-                  <div>Every model.</div>
-                  <div>Production ready.</div>
+                  <div>Agentic Workflows.</div>
+                  <div>Scalable &amp; Reliable.</div>
                 </div>
               </div>
 

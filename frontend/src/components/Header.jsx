@@ -14,17 +14,7 @@ const NAV = [
 
 export default function Header() {
   const { theme, toggleTheme, motion, toggleMotion } = useApp();
-  const [prog, setProg] = useState(0);
   const [menuOpen, setMenuOpen] = useState(false);
-
-  useEffect(() => {
-    const onScroll = () => {
-      const docH = document.documentElement.scrollHeight - window.innerHeight;
-      setProg(docH > 0 ? (window.scrollY / docH) * 100 : 0);
-    };
-    window.addEventListener('scroll', onScroll, { passive: true });
-    return () => window.removeEventListener('scroll', onScroll);
-  }, []);
 
   useEffect(() => {
     const onKey = (e) => { if (e.key === 'Escape') setMenuOpen(false); };
@@ -89,8 +79,6 @@ export default function Header() {
             <span style={menuOpen ? { opacity: 0 } : {}} />
             <span style={menuOpen ? { transform: 'rotate(-45deg) translate(5px,-5px)' } : {}} />
           </button>
-
-          <div className="hprog" style={{ width: `${prog}%` }} />
         </div>
       </header>
 

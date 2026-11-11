@@ -1,8 +1,7 @@
 // Header.jsx
 import { useState, useEffect, useCallback } from 'react';
-import { Moon, Sun, Zap } from 'lucide-react';
+import { Moon, Sun } from 'lucide-react';
 import { useApp } from '../context.jsx';
-import { playSwarm } from '../motion/swarm.js';
 
 const NAV = [
   { label: 'Work', href: '#work' },
@@ -58,9 +57,6 @@ export default function Header() {
           </nav>
 
           <div className="hcontrols">
-            <button className="swarm-btn" onClick={playSwarm} title="Play Builder Swarm (Alt+Shift+S)">
-              <Zap size={12} /> Swarm
-            </button>
             <button
               className="ctrl-pill-btn"
               onClick={toggleMotion}
@@ -108,9 +104,9 @@ export default function Header() {
           </a>
         ))}
         <div style={{ marginTop: 32, display: 'flex', gap: 10, flexWrap: 'wrap' }}>
-          <button className="btn btn-solid" onClick={() => { setMenuOpen(false); playSwarm(); }}>
-            <Zap size={12} /> Swarm
-          </button>
+          <a href="#contact" className="btn btn-solid" onClick={(e) => handleNav(e, '#contact')}>
+            Let's connect ↗
+          </a>
           <button className="btn btn-ghost" onClick={toggleTheme}>
             {theme === 'dark' ? '☀ Light' : '☾ Dark'}
           </button>

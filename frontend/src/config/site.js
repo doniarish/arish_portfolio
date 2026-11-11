@@ -37,11 +37,6 @@ const site = {
     autoreplyTemplateId: 'template_maqplco',
     publicKey: 'Qvke1Fq43On9iQcBz',
   },
-  swarm: {
-    names: ['ML_OPS','TRAINER','DEBUGGER','PIPELINE','LOADER','PARSER','PLOTTER','BUILDER','DEPLOY','RUNNER','TUNER','VALIDATOR'],
-    finaleMsg: 'Agents finished.',
-    sessionKey: 'arish-portfolio-sw',
-  },
 };
 
 export default site;

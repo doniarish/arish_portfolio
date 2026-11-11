@@ -1,7 +1,6 @@
 // App.jsx — root component
 import { useEffect } from 'react';
 import { AppProvider } from './context.jsx';
-import { initSwarm } from './motion/swarm.js';
 import Header from './components/Header.jsx';
 import Hero from './components/Hero.jsx';
 import Ways from './components/Ways.jsx';
@@ -16,9 +15,6 @@ import Footer from './components/Footer.jsx';
 
 function Portfolio() {
   useEffect(() => {
-    // Initialize swarm
-    initSwarm();
-
     // Scroll reveal setup
     function revealAll() {
       const els = document.querySelectorAll('.rv:not(.vis)');

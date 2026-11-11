@@ -174,7 +174,7 @@ export default function Hero() {
                 </div>
 
                 {/* Docked vibrant red "CURRENTLY BUILDING" badge */}
-                <div className="portal-building-dock rv d3">
+                <div className="portal-building-dock">
                   <div className="dock-label">CURRENTLY BUILDING</div>
                   <div className="dock-val">AGENTIC TOOLS FOR PRODUCTION</div>
                 </div>

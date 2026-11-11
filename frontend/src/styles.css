@@ -648,28 +648,40 @@ section { padding: 100px 0; }
 /* Docked Red Card at the Bottom */
 .portal-building-dock {
   position: absolute;
-  bottom: -12px;
+  bottom: -14px;
   left: 50%;
-  transform: translateX(-50%);
+  transform: translate3d(-50%, 0, 0) !important;
   z-index: 8;
   background: var(--red);
   color: #fff;
-  padding: 8px 18px;
-  border-radius: 3px;
-  box-shadow: 0 8px 24px rgba(227, 43, 60, 0.45);
+  padding: 8px 20px;
+  border-radius: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.45), 0 0 20px rgba(227, 43, 60, 0.35);
   text-align: center;
   white-space: nowrap;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 .dock-label {
-  font: 700 8.5px var(--mono);
-  letter-spacing: .14em;
-  color: rgba(255, 255, 255, 0.85);
-  margin-bottom: 2px;
+  font-family: var(--mono);
+  font-size: 9.5px;
+  font-weight: 700;
+  letter-spacing: .12em;
+  color: rgba(255, 255, 255, 0.92);
+  margin-bottom: 3px;
+  text-transform: uppercase;
+  line-height: 1.2;
 }
 .dock-val {
-  font: 700 12.5px var(--disp);
-  letter-spacing: .04em;
+  font-family: var(--body);
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: .06em;
+  color: #ffffff;
   text-transform: uppercase;
+  line-height: 1.2;
 }
 
 /* Right Column: Motto & Vertical Stat Numbers */

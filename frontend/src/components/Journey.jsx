@@ -17,7 +17,7 @@ export default function Journey() {
         <div className="section-label rv">
           <span className="kicker">05 / JOURNEY</span>
         </div>
-        <h2 className="sec-head rv" data-sw="text">
+        <h2 className="sec-head rv">
           Career<span className="red-dot">.</span>
         </h2>
 
@@ -25,7 +25,7 @@ export default function Journey() {
           {/* Accordion */}
           <div className="rv d1">
             {experience.map((exp, i) => (
-              <div key={exp.id} className={`accordion-item ${open === i ? 'open' : ''}`} data-sw="box" data-sw-dup="experience-acc">
+              <div key={exp.id} className={`accordion-item ${open === i ? 'open' : ''}`}>
                 <div className="accordion-head" onClick={() => toggle(i)}>
                   <div>
                     <div className="acc-role">{exp.role}</div>

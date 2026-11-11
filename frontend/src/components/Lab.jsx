@@ -32,7 +32,7 @@ export default function Lab() {
         <div className="section-label rv">
           <span className="kicker">03 / LAB</span>
         </div>
-        <h2 className="sec-head rv" data-sw="text">
+        <h2 className="sec-head rv">
           Under the<br />Hood<span className="red-dot">.</span>
         </h2>
 
@@ -141,32 +141,32 @@ export default function Lab() {
           <div className="sys-diagram-label">Architecture Pipeline</div>
           <div className="sys-diagram">
             {/* Root Node: AI Clients / LLMs */}
-            <div className="sys-node sys-root" data-sw="box">
+            <div className="sys-node sys-root">
               <span className="sys-node-title">AI CLIENTS &amp; AGENTS</span>
               <span className="sys-node-sub">LangChain · LangGraph · Multi-turn LLMs</span>
             </div>
 
-            <div className="sys-connector" data-sw="line" />
+            <div className="sys-connector" />
 
             {/* Bus Node: Hybrid Orchestrator */}
-            <div className="sys-node sys-bus" data-sw="box">
+            <div className="sys-node sys-bus">
               <span className="sys-node-title">HYBRID RAG &amp; ROUTING BUS</span>
               <span className="sys-node-sub">Intent Classifier · Query Router · Redis Session Memory</span>
             </div>
 
-            <div className="sys-connector" data-sw="line" />
+            <div className="sys-connector" />
 
-            {/* Three Leaves with data-sw-dup="sys-leaves" */}
+            {/* Three Leaves with */}
             <div className="sys-leaves">
-              <div className="sys-node sys-leaf" data-sw="box" data-sw-dup="sys-leaves">
+              <div className="sys-node sys-leaf">
                 <span className="sys-node-title">PINECONE / FAISS</span>
                 <span className="sys-node-sub">Vector retrieval · Semantic search</span>
               </div>
-              <div className="sys-node sys-leaf" data-sw="box" data-sw-dup="sys-leaves">
+              <div className="sys-node sys-leaf">
                 <span className="sys-node-title">TEXT-TO-SQL ENGINE</span>
                 <span className="sys-node-sub">SQL Server · Dynamic query builder</span>
               </div>
-              <div className="sys-node sys-leaf" data-sw="box" data-sw-dup="sys-leaves">
+              <div className="sys-node sys-leaf">
                 <span className="sys-node-title">REDIS STATE STORE</span>
                 <span className="sys-node-sub">Context cache · Rate limiting</span>
               </div>
@@ -180,7 +180,7 @@ export default function Lab() {
         </h3>
         <div className="caps-grid">
           {services.map((s, i) => (
-            <div key={s.title} className={`cap-card rv d${i + 1}`} data-sw="box">
+            <div key={s.title} className={`cap-card rv d${i + 1}`}>
               <div className="cap-icon">{SERVICE_ICONS[s.icon] || '🤖'}</div>
               <div className="cap-title">{s.title}</div>
               <div className="cap-desc">{s.desc}</div>

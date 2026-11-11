@@ -15,33 +15,40 @@ import Footer from './components/Footer.jsx';
 
 function Portfolio() {
   useEffect(() => {
-    // Scroll reveal setup
-    function revealAll() {
-      const els = document.querySelectorAll('.rv:not(.vis)');
-      const obs = new IntersectionObserver(
-        (entries) => {
-          entries.forEach(e => {
-            if (e.isIntersecting) {
-              e.target.classList.add('vis');
-              obs.unobserve(e.target);
-            }
-          });
-        },
-        { threshold: 0.12 }
-      );
-      els.forEach(el => obs.observe(el));
-    }
+    // Single shared IntersectionObserver for scroll reveals
+    const obs = new IntersectionObserver(
+      (entries) => {
+        entries.forEach(e => {
+          if (e.isIntersecting) {
+            e.target.classList.add('vis');
+            obs.unobserve(e.target);
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
 
-    // Small delay so DOM is painted
-    const timer = setTimeout(revealAll, 100);
+    const observeNew = () => {
+      document.querySelectorAll('.rv:not(.vis)').forEach(el => obs.observe(el));
+    };
 
-    // MutationObserver so cards rendered later or updated state also reveal
-    const mutObs = new MutationObserver(() => revealAll());
+    observeNew();
+
+    // Debounced mutation observer so dynamic cards reveal without re-creating observers
+    let debounceTimer = null;
+    const mutObs = new MutationObserver(() => {
+      if (debounceTimer) return;
+      debounceTimer = setTimeout(() => {
+        observeNew();
+        debounceTimer = null;
+      }, 150);
+    });
     mutObs.observe(document.body, { childList: true, subtree: true });
 
     return () => {
-      clearTimeout(timer);
+      obs.disconnect();
       mutObs.disconnect();
+      if (debounceTimer) clearTimeout(debounceTimer);
     };
   }, []);
 

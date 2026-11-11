@@ -24,14 +24,14 @@ export default function About() {
         <div className="section-label rv">
           <span className="kicker">04 / ABOUT</span>
         </div>
-        <h2 className="sec-head rv" data-sw="text">
+        <h2 className="sec-head rv">
           Experience<br />&amp; Craft<span className="red-dot">.</span>
         </h2>
 
         <div className="about-grid">
           {/* Left: bio + process */}
           <div>
-            <p className="about-bio rv d1" data-sw="text">
+            <p className="about-bio rv d1">
               I'm an AI & Data Science engineer passionate about building systems that solve real problems.
               From RAG-based knowledge retrieval to production chatbots handling multilingual queries,
               I bring together ML fundamentals and modern LLM tooling to ship results-driven applications.
@@ -39,28 +39,28 @@ export default function About() {
 
             <div className="process-steps rv d2">
               {processSteps.map((step, i) => (
-                <div className="process-step" key={step.n} data-sw="box" data-sw-dup="process-steps">
+                <div className="process-step" key={step.n}>
                   <div className="step-num">{step.n}</div>
                   <div className="step-content">
-                    <h4 data-sw="text">{step.title}</h4>
+                    <h4>{step.title}</h4>
                     <p>{step.desc}</p>
                   </div>
                 </div>
               ))}
             </div>
 
-            <div className="quote-card rv d3" data-sw="box">
+            <div className="quote-card rv d3">
               "Research, build, evaluate, ship. Repeat."
             </div>
           </div>
 
           {/* Right: skill bars */}
           <div className="about-right rv d2" ref={barsRef}>
-            <h3 style={{ fontFamily: 'var(--disp)', fontSize: 'clamp(20px,2.5vw,28px)', textTransform: 'uppercase', marginBottom: 32 }} data-sw="text">
+            <h3 style={{ fontFamily: 'var(--disp)', fontSize: 'clamp(20px,2.5vw,28px)', textTransform: 'uppercase', marginBottom: 32 }}>
               Skill Stack<span className="red-dot">.</span>
             </h3>
             {skillBars.map(sb => (
-              <div className="skill-bar-wrap" key={sb.label} data-sw="box" data-sw-dup="skill-bars">
+              <div className="skill-bar-wrap" key={sb.label}>
                 <div className="skill-bar-top">
                   <span className="skill-bar-name">{sb.label}</span>
                   <span className="skill-bar-val">{sb.level}%</span>

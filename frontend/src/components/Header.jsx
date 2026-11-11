@@ -1,6 +1,5 @@
 // Header.jsx
 import { useState, useEffect, useCallback } from 'react';
-import { Moon, Sun } from 'lucide-react';
 import { useApp } from '../context.jsx';
 
 const NAV = [

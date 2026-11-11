@@ -1,7 +1,6 @@
 // Creator.jsx — Social presence + content topics
 import { ExternalLink } from 'lucide-react';
 import { creatorTopics } from '../data/profile.js';
-import { useApp } from '../context.jsx';
 
 const LinkedinIcon = () => (
   <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
@@ -54,7 +53,7 @@ export default function Creator() {
         <div className="section-label rv">
           <span className="kicker">06 / CONNECT</span>
         </div>
-        <h2 className="sec-head rv" data-sw="text">
+        <h2 className="sec-head rv">
           Find Me<br />Online<span className="red-dot">.</span>
         </h2>
 

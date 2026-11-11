@@ -29,7 +29,7 @@ export default function Footer() {
   return (
     <footer id="footer">
       <div className="wrap">
-        <div className="footer-name rv" data-sw="text">
+        <div className="footer-name rv">
           ARISH DONI S<span className="dot">.</span>
         </div>
 

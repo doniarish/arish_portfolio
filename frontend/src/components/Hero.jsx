@@ -47,20 +47,20 @@ export default function Hero() {
     <>
       <section id="hero">
         {/* Giant red background meaningful role word spanning across */}
-        <div className="hero-bg-word" aria-hidden="true" data-sw="text">
+        <div className="hero-bg-word" aria-hidden="true">
           {site.heroBgWord || 'AI ENGINEER'}
         </div>
 
         <div className="wrap hero-inner">
           {/* Top meta-bar */}
           <div className="hero-top-meta">
-            <div className="hero-kicker rv d1" data-sw="text">
+            <div className="hero-kicker rv d1">
               <span className="kicker-title">AI ENGINEER & GENAI SPECIALIST</span>
               <span className="kicker-sep">·</span>
               <span className="kicker-sub">LLMs · RAG · AGENTIC SYSTEMS × PRODUCTION</span>
             </div>
 
-            <div className="hero-avail rv d1" data-sw="box">
+            <div className="hero-avail rv d1">
               <span className="avail-dot"></span>
               <span className="avail-text">OPEN TO ROLES, COLLABS & MENTORSHIP</span>
             </div>
@@ -70,29 +70,29 @@ export default function Hero() {
           <div className="hero-grid">
             {/* Left Column: Hello, I'm Arish Doni + punchline + bio + CTAs */}
             <div className="hero-col-left">
-              <div className="hero-script-wrap rv d1" data-sw="text">
+              <div className="hero-script-wrap rv d1">
                 <span className="hero-script">Hello, I'm</span>
               </div>
 
-              <h1 className="hero-name rv d2" data-sw="text" data-sw-guide>
+              <h1 className="hero-name rv d2">
                 <span className="name-l1">ARISH</span><br />
                 <span className="name-l2">DONI<span className="red-dot">.</span></span>
               </h1>
 
-              <div className="hero-punchline rv d2" data-sw="text">
+              <div className="hero-punchline rv d2">
                 <div>AI MOMENTUM.</div>
                 <div>PRODUCTION DEPTH.</div>
               </div>
 
-              <p className="hero-bio rv d3" data-sw="text">
+              <p className="hero-bio rv d3">
                 I build production AI systems, autonomous multi-agent workflows, and scalable architectures that turn complex models into reliable, high-impact products.
               </p>
 
               <div className="hero-actions rv d3">
-                <a href={site.resume} className="btn btn-solid" data-sw="box" download target="_blank" rel="noopener noreferrer">
+                <a href={site.resume} className="btn btn-solid" download target="_blank" rel="noopener noreferrer">
                   Download CV →
                 </a>
-                <a href="#work" className="btn btn-ghost" data-sw="box">
+                <a href="#work" className="btn btn-ghost">
                   View Work →
                 </a>
               </div>
@@ -100,14 +100,14 @@ export default function Hero() {
 
             {/* Center Column: Circular Avatar Tech Hub Portal */}
             <div className="hero-col-center rv d2">
-              <div className="portal-container" data-sw="box">
+              <div className="portal-container">
                 {/* Outer concentric radar tech rings */}
                 <div className="portal-ring outer"></div>
                 <div className="portal-ring inner-dashed"></div>
                 <div className="portal-ring grid-ticks"></div>
 
                 {/* Left floating status pills */}
-                <div className="portal-pills-stack" data-sw="box">
+                <div className="portal-pills-stack">
                   <div className="portal-pill">
                     <span className="p-dot"></span>
                     <span className="p-text">LLM AGENTS: ACTIVE</span>
@@ -161,7 +161,6 @@ export default function Hero() {
                     src={site.portrait}
                     alt="Arish Doni S"
                     className="portal-img"
-                    data-sw="media"
                     loading="eager"
                   />
                   {/* Subtle inner dark gradient for blending */}
@@ -169,13 +168,13 @@ export default function Hero() {
                 </div>
 
                 {/* Bottom Nameplate inside the circle */}
-                <div className="portal-nameplate" data-sw="text">
+                <div className="portal-nameplate">
                   <div className="pn-name">ARISH DONI</div>
                   <div className="pn-role">AI ENGINEER | GENAI & AGENTS</div>
                 </div>
 
                 {/* Docked vibrant red "CURRENTLY BUILDING" badge */}
-                <div className="portal-building-dock rv d3" data-sw="box">
+                <div className="portal-building-dock rv d3">
                   <div className="dock-label">CURRENTLY BUILDING</div>
                   <div className="dock-val">AGENTIC TOOLS FOR PRODUCTION</div>
                 </div>
@@ -194,7 +193,7 @@ export default function Hero() {
 
               <div className="hero-stats-stack" ref={statsRef}>
                 {stats.map((s, i) => (
-                  <div key={i} className="hero-stat-block" data-sw="box" data-sw-dup="hero-stat-card">
+                  <div key={i} className="hero-stat-block">
                     <div className="stat-giant-num">
                       <span ref={el => statEls.current[i] = el}>0{s.suffix}</span>
                     </div>

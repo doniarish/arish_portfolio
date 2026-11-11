@@ -112,7 +112,7 @@ export default function Contact() {
         <div className="section-label rv">
           <span className="kicker">07 / CONTACT</span>
         </div>
-        <h2 className="sec-head rv" data-sw="text">
+        <h2 className="sec-head rv">
           Let's work<br />together<span className="red-dot">.</span>
         </h2>
 
@@ -147,7 +147,7 @@ export default function Contact() {
           </div>
 
           {/* Right: form */}
-          <div className="contact-form rv d2" data-sw="box">
+          <div className="contact-form rv d2">
             <form ref={formRef} onSubmit={handleSubmit}>
               <div className="form-row">
                 <label className="form-label" htmlFor="cf-name">Name</label>

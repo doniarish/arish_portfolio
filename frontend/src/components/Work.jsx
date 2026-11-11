@@ -31,7 +31,7 @@ export default function Work() {
         </div>
 
         <div className="work-top">
-          <h2 className="sec-head rv" data-sw="text">
+          <h2 className="sec-head rv">
             Projects<span className="red-dot">.</span>
           </h2>
           <div style={{ display: 'flex', flexDirection: 'column', gap: 12, alignItems: 'flex-end' }}>
@@ -61,14 +61,14 @@ export default function Work() {
         ) : (
           <div className="work-grid">
             {filtered.map((p, i) => (
-              <article key={p.t} className={`proj-card rv d${(i % 3) + 1}`} data-sw="box" data-sw-dup="projects">
-                <div className={`proj-thumb proj-thumb-${hashCat(p.cat)}`} data-sw="media" />
+              <article key={p.t} className={`proj-card rv d${(i % 3) + 1}`}>
+                <div className={`proj-thumb proj-thumb-${hashCat(p.cat)}`} />
                 <div className="proj-body">
                   <div className="proj-cat">
-                    <span data-sw="text">{p.cat}</span>
+                    <span>{p.cat}</span>
                     <span className="proj-badge">{p.l}</span>
                   </div>
-                  <h3 className="proj-title" data-sw="text">{p.t}</h3>
+                  <h3 className="proj-title">{p.t}</h3>
                   <p className="proj-desc">{p.d}</p>
                   <div className="proj-stack">
                     {p.stack.map(s => <span key={s} className="stack-tag">{s}</span>)}

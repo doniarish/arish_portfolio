@@ -16,7 +16,7 @@ export default function ToolsMarquee() {
 
         <div className="tools-header-row rv">
           <div>
-            <h2 className="sec-head" data-sw="text">
+            <h2 className="sec-head">
               The tools<br />I trust<span className="red-dot">.</span>
             </h2>
             <p className="tools-sub">Technologies and frameworks I build production AI systems with.</p>
